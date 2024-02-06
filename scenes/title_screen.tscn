@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyw1xtok5p4kt"]
+
+[ext_resource type="Texture2D" uid="uid://brc8sfoqw5uma" path="res://assets/textures/ui/BigLogo.png" id="1_be2oj"]
+[ext_resource type="Script" path="res://scripts/base_screen.gd" id="1_rmwo4"]
+[ext_resource type="PackedScene" uid="uid://dxsjskd1pjkg3" path="res://scenes/screen_button.tscn" id="2_03ggu"]
+[ext_resource type="Texture2D" uid="uid://cyn72i84iy5cp" path="res://assets/textures/ui/PlayBtn.png" id="3_g73he"]
+[ext_resource type="Texture2D" uid="uid://cn3g56i623wcv" path="res://assets/textures/ui/Box02.png" id="5_xqacy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_idfv5"]
+font_size = 56
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_pfu6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TitlePlay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(150.5, 427)]
+}
+
+[sub_resource type="Animation" id="Animation_cnelb"]
+resource_name = "animate_play_button"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TitlePlay:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(150.5, 387), Vector2(150.5, 420)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g08jw"]
+_data = {
+"RESET": SubResource("Animation_pfu6y"),
+"animate_play_button": SubResource("Animation_cnelb")
+}
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rmwo4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -274.0
+offset_right = 274.0
+offset_bottom = 535.0
+grow_horizontal = 2
+
+[node name="Logo" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -243.0
+offset_right = 243.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_be2oj")
+expand_mode = 1
+
+[node name="TitlePlay" parent="Control" instance=ExtResource("2_03ggu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.5
+offset_top = 159.5
+offset_right = 119.5
+offset_bottom = 399.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_g73he")
+
+[node name="TitleShop" parent="Control" instance=ExtResource("2_03ggu")]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 723.0
+offset_right = 406.0
+offset_bottom = 853.0
+texture_normal = ExtResource("5_xqacy")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/TitleShop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -25.0
+offset_right = 48.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_idfv5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g08jw")
+}
+autoplay = "animate_play_button"

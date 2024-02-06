@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=3 uid="uid://dc0ncvknrurs1"]
+
+[ext_resource type="Texture2D" uid="uid://c5rfn46lmvcqv" path="res://assets/textures/ui/Box04.png" id="1_ip25y"]
+[ext_resource type="Script" path="res://scripts/base_screen.gd" id="1_ni6sb"]
+[ext_resource type="Texture2D" uid="uid://dwwjpc72mgvb0" path="res://assets/textures/ui/Welldone.png" id="2_tyh7g"]
+[ext_resource type="PackedScene" uid="uid://dxsjskd1pjkg3" path="res://scenes/screen_button.tscn" id="3_v4pph"]
+[ext_resource type="Texture2D" uid="uid://beni3ra3par40" path="res://assets/textures/ui/RestartBtn.png" id="4_x7p0l"]
+[ext_resource type="Texture2D" uid="uid://drxsjuoo3puqp" path="res://assets/textures/ui/menuBtn.png" id="5_napne"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mdt4m"]
+font_size = 55
+font_color = Color(0, 0, 0, 1)
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ni6sb")
+metadata/_edit_use_anchors_ = true
+
+[node name="BlackBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00195, 1)
+color = Color(0.0117647, 0.0235294, 0.0235294, 0.666667)
+
+[node name="Box" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -277.0
+offset_right = 251.0
+offset_bottom = 277.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ip25y")
+expand_mode = 1
+
+[node name="WellDone" type="TextureRect" parent="Box"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -159.0
+offset_top = 100.0
+offset_right = 159.0
+offset_bottom = 201.0
+grow_horizontal = 2
+texture = ExtResource("2_tyh7g")
+expand_mode = 1
+
+[node name="ScoreLabel" type="Label" parent="Box"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -77.0
+offset_right = 150.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 9999"
+label_settings = SubResource("LabelSettings_mdt4m")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HighScoreLabel" type="Label" parent="Box"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -16.0
+offset_right = 133.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Best: 9999"
+label_settings = SubResource("LabelSettings_mdt4m")
+horizontal_alignment = 1
+
+[node name="GameOverRetry" parent="Box" instance=ExtResource("3_v4pph")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = 123.0
+offset_right = -39.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_x7p0l")
+stretch_mode = 0
+
+[node name="GameOverBack" parent="Box" instance=ExtResource("3_v4pph")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = 121.0
+offset_right = 138.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_napne")
+stretch_mode = 0

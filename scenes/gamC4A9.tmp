@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyer1ddlv5kgd"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_sjsxx"]
+[ext_resource type="PackedScene" uid="uid://rtf1gwmufrtv" path="res://scenes/player.tscn" id="2_hspo2"]
+[ext_resource type="PackedScene" uid="uid://b7p2t7iwe0yus" path="res://scenes/platform.tscn" id="3_jp2pc"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_sjsxx")
+
+[node name="Player" parent="." instance=ExtResource("2_hspo2")]
+position = Vector2(271, 447)
+
+[node name="Platform" parent="." instance=ExtResource("3_jp2pc")]
+position = Vector2(139, 893)
+
+[node name="Platform2" parent="." instance=ExtResource("3_jp2pc")]
+position = Vector2(5, 893)
+
+[node name="Platform3" parent="." instance=ExtResource("3_jp2pc")]
+position = Vector2(273, 893)
+
+[node name="Platform4" parent="." instance=ExtResource("3_jp2pc")]
+position = Vector2(407, 893)
